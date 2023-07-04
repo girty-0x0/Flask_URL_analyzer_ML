@@ -6,6 +6,7 @@ function validateURL(url_str) {
     return false;  
   }
 }
+
 function alertTheClient() {
   alert("Please input a valid URL.");
 }
@@ -18,6 +19,7 @@ function callServer(to_server) {
   var def_res = document.getElementById("def_res");
 
   var resultsContainer = document.getElementById("results"); //big block holding all elements; default hidden
+  
   $.ajax({
     type: "POST",
     url: "/proc_url",
@@ -42,24 +44,28 @@ function callServer(to_server) {
 }
 
 function analyze_url(){
-    var url = document.getElementById("url_input").value; //user input url
-    var no_scheme = '0';
-    if (!/^((http|https|ftp):\/\/)/.test(url)) { //test for scheme; add http scheme if not present
-      no_scheme = url
-      url = "http://" + url;
-    }
+  var url = document.getElementById("url_input").value; //user input url
+  var no_scheme = '0';
+  if (!/^((http|https|ftp):\/\/)/.test(url)) { //test for scheme; add http scheme if not present
+    no_scheme = url;
+    url = "http://" + url;
+  }
 
-    var to_server = [
-        {"url_str": url},
-        {"no_scheme": no_scheme}
-      ];
-    
-    if (validateURL(url)) {
-      callServer(to_server);
-    } else{
-      alertTheClient();
-    }
-    
-    
+  var to_server = [ // will produce a json result with a url with a scheme and another one without the scheme or 0 if it had a scheme included
+      {"url_str": url},
+      {"no_scheme": no_scheme}
+    ];
+  
+  if (validateURL(url)) {
+    callServer(to_server);
+  } else{
+    alertTheClient();
+  }   
 }
 
+function clear_page(){
+  var urlContainer = document.getElementById("url_input");
+  var resultsContainer = document.getElementById("results");
+  urlContainer.value = "";
+  resultsContainer.style.display = "none";
+}
