@@ -1,0 +1,6 @@
+/.venv
+/examine
+/something.txt
+/__pycache__
+/model_info/LinearSVC_url.joblib
+/model_info/RandomForestClassifier_url.joblib
