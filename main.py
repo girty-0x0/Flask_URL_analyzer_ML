@@ -22,6 +22,10 @@ app = Flask(__name__)
 def home():
     return render_template('index.html', title="URL Classification Tool")
 
+@app.route('/about.html', methods=['GET'])
+def abt():
+    return render_template('about.html', title="About The Model")
+
 @app.route('/proc_url', methods=["POST"])
 def proc_url():
     if request.method == 'POST':
