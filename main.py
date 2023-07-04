@@ -35,10 +35,17 @@ def proc_url():
             results['url'] = url
         else:
             if (no_scheme == '0'):
-                prediction, results['proba'] = make_prediction(url, ML_model, vectorizer) # predicts with included scheme
+                prediction, details_tpl = make_prediction(url, ML_model, vectorizer) # predicts with included scheme
             else:
-                prediction, results['proba'] = make_prediction(no_scheme.strip(), ML_model, vectorizer) # predicts without scheme
-            results['url'] = values_to_name[prediction[0]]
+                prediction, details_tpl = make_prediction(no_scheme.strip(), ML_model, vectorizer) # predicts without scheme
+            results["mal"] = round((float(details_tpl[2]) * 100 ),2) #formats each probability as dd.dd
+            results["ben"] = round((float(details_tpl[0]) * 100), 2)
+            results["phish"] = round((float(details_tpl[3]) * 100), 2)
+            results["def"] = round((float(details_tpl[1]) * 100), 2)
+            if prediction[0] == 0:
+                results['url'] = "Safe"
+            else:
+                results['url'] = "Unsafe"
     return jsonify(results)
 
 if __name__ == '__main__':

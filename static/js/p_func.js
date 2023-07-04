@@ -12,6 +12,11 @@ function alertTheClient() {
 
 function callServer(to_server) {
   var url_result = document.getElementById("url_analyze_result"); // where url will be sent to
+  var phish_res = document.getElementById("phish_res");
+  var mal_res = document.getElementById("mal_res");
+  var ben_res = document.getElementById("ben_res");
+  var def_res = document.getElementById("def_res");
+
   var resultsContainer = document.getElementById("results"); //big block holding all elements; default hidden
   $.ajax({
     type: "POST",
@@ -24,12 +29,16 @@ function callServer(to_server) {
       if (res == 'inv') {
         alertTheClient();
       } else {
-        url_result.innerHTML = res; 
+        url_result.innerHTML = res;
+        phish_res.innerHTML = result.phish;
+        mal_res.innerHTML = result.mal;
+        ben_res.innerHTML = result.ben;
+        def_res.innerHTML = result.def;
         resultsContainer.style.display = "block";
       }
       
-      } 
-    });
+    } 
+  });
 }
 
 function analyze_url(){
