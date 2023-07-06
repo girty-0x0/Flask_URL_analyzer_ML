@@ -19,10 +19,19 @@ app = Flask(__name__)
 # $env:FLASK_DEBUG=1
 
 @app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
+@app.route('/index.html', methods=['GET'])
+@app.route('/home', methods=['GET'])
 def home():
     return render_template('index.html', title="URL Classification Tool")
 
+@app.route('/classifications.html', methods=['GET'])
+@app.route('/classifications', methods=['GET'])
+def cls():
+    return render_template('classifications.html', title="Model Classifications")
+
 @app.route('/about.html', methods=['GET'])
+@app.route('/about', methods=['GET'])
 def abt():
     return render_template('about.html', title="About The Model")
 

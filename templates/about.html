@@ -6,7 +6,7 @@
     <nav>
         <ul>
             <li><a href="index.html">URL Analyzer</a></li>
-            <li><a href="">Classifications</a></li>
+            <li><a href="classifications.html">Classifications</a></li>
             <li><a href="about.html" class="active">About The Model</a></li>
         </ul>
     </nav>
@@ -21,5 +21,47 @@
         <h1 class="major">About The Model</h1>
     </div>
 </section>
+<!-- Graphs and Visualizations -->
+<section id="visuals" class="wrapper style2 spotlights">
+    <section class="center_img">
+        <a href="#" ><img src="{{ url_for('static', filename='images/pie_chart.png') }}" alt=""/></a>
+    </section>
+
+    <section>
+        <div class="content">
+            <div class="inner">
+                <h2>URLs per Class</h2>
+                <p>This pie chart visualizes the total number of URLs that per class class our dataset was made up of. 
+                    The percentages reflected demonstrate the dataset after the data was cleared of undesireable data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="center_img">
+        <a href="#"><img src="{{ url_for('static', filename='images/Schemes_by_class.png') }}" alt=""/></a>  
+    </section>
+    <section>
+        <div class="content">
+            <div class="inner" >
+                <h2>Schemes per Class</h2>
+                <p>The horizontal bar graph seen above pictures the number of URLs grouped by their schemes.
+                    A scheme is the part before '://' in a URL, which browsers will append automatically if not present in a query.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="center_img">
+        <a href="#"><img src="{{ url_for('static', filename='images/URL_Length_Frequency.png') }}" alt="" /></a>  
+    </section>
+    <section>
+        <div class="content">
+            <div class="inner" >
+                <h2>URL Length Distribution</h2>
+                <p>These histograms show the frequency of URL lengths per class. Multiplying the frequency by 1000 will provide the real amount.</p>
+            </div>
+        </div>
+    </section>
+
 
 {% endblock content %}

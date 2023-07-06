@@ -6,7 +6,7 @@
     <nav>
         <ul>
             <li><a href="index.html" class="active">URL Analyzer</a></li>
-            <li><a href="">Classifications</a></li>
+            <li><a href="classifications.html">Classifications</a></li>
             <li><a href="about.html">About The Model</a></li>
         </ul>
     </nav>
@@ -16,7 +16,7 @@
 {% block content %}
 
 <!-- Main -->
-<section id="main" class="wrapper fade-up">
+<section id="main" class="wrapper fullscreen fade-up">
     <div class="inner"> 
         <h1 >URL Analyzer</h1>
             <div class="row gtr-uniform">
@@ -41,21 +41,29 @@
                 <span class="icon solid major fa-user-secret"></span>
                 <h3>Phishing</h3>
                 <p>Our model says your URL is <b><span id="phish_res"></span>%</b> likely to be phishing related.</p>
+                <br>
+                <p><a href="classifications.html#phishing" title="Phishing"><sub>Learn more about the phishing classification.</sub></a></p>
             </section>
             <section>
                 <span class="icon solid major fa-bug-slash"></span>
                 <h3>Malware</h3>
                 <p>Our model says your URL is <b><span id="mal_res"></span>%</b> likely to be hosting malware.</p>
+                <br>
+                <p><a href="classifications.html#malware" title="Malware"><sub>Learn more about the malware classification.</sub></a></p>
             </section>
             <section>
                 <span class="icon solid major fa-shield-halved"></span>
                 <h3>Benign</h3>
                 <p>Our model says your URL is <b><span id="ben_res"></span>%</b> likely to be completely secure.</p>
+                <br>
+                <p><a href="classifications.html#benign" title="Benign"><sub>Learn more about the benign classification.</sub></a></p>
             </section>
             <section>
                 <span class="icon solid major fa-burst"></span>
                 <h3>Defacement</h3>
                 <p>Our model says your URL is <b><span id="def_res"></span>%</b> likely to be part of a defaced website.</p>
+                <br>
+                <p><a href="classifications.html#phishing" title="Defacement"><sub>Learn more about the defacement classification.</sub></a></p>
             </section>
         </div>
     </div>

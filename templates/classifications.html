@@ -1,0 +1,65 @@
+{% extends "basic_layout.html" %}
+
+{% block header %}
+<header id="header">
+    <a href="index.html" class="title">P&P Inc.</a>
+    <nav>
+        <ul>
+            <li><a href="index.html">URL Analyzer</a></li>
+            <li><a href="classifications.html" class="active">Classifications</a></li>
+            <li><a href="about.html">About The Model</a></li>
+        </ul>
+    </nav>
+</header>
+{% endblock header %}
+
+{% block content %}
+
+<!-- Main -->
+<section id="main" class="wrapper fade-up">
+    <div class="inner"> 
+        <h1>Classifications</h1>
+        <p><em>What does the result of your URL mean?</em></p>
+    </div>
+</section>
+<!-- Graphs and Visualizations -->
+<section id="class explanations" class="wrapper style2 spotlights">
+    <section id="phishing">
+        <div class="content">
+            <div class="inner">
+                <h2><span class="icon solid major fa-user-secret"></span>Phishing</h2>
+                <p>If your URL has a high probability of being classified as phishing, it may be trying to deceive you!
+                    Phishing URLs are those which have been part of phishing campaigns in the past by trying to gain sensitive information from a user for a malicious purpose.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="malware">
+        <div class="content">
+            <div class="inner" >
+                <h2><span class="icon solid major fa-bug-slash"></span>Malware</h2>
+                <p>If your URL has a high probability to be <em>malware</em> then our model determined your URL shows signs of hosting files that can harm your computer.
+                Malware will often be software with malicious intent and has many forms like viruses and Trojans.</p>
+            </div>
+        </div>
+    </section>
+    <section id="benign">
+        <div class="content">
+            <div class="inner" >
+                <h2><span class="icon solid major fa-shield-halved"></span>Benign</h2>
+                <p>These are sites that are most likely to be safe! The higher the probability that a URL you analyzed is benign, the more likely it is to be safe.</p>
+            </div>
+        </div>
+    </section>
+    <section id="defacement">
+        <div class="content">
+            <div class="inner" >
+                <h2><span class="icon solid major fa-burst"></span>Defacement</h2>
+                <p>URLs classified as <em>defacement</em> are those which the model thinks might be malicious pages hosted or hidden by harmless sites! 
+                When a page is altered by techniques like SQL injections or watering-hole attacks, a user may experience adverse effects by visiting the page.</p>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}
