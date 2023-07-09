@@ -37,6 +37,7 @@ function callServer(to_server) {
         ben_res.innerHTML = result.ben;
         def_res.innerHTML = result.def;
         resultsContainer.style.display = "block";
+        url_result.scrollIntoView(({ behavior: 'smooth', block: 'start' })); //scrolls down to results
       }
       
     } 
